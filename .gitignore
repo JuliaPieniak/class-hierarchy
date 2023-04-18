@@ -1,0 +1,19 @@
+# logs
+*.log
+log/
+
+# IDE
+.idea/
+*.ipr
+*.iws
+*.iml
+.idea_modules/
+
+# Maven
+target/
+build/
+maven-archiver/
+maven-status/
+
+# out
+out/
