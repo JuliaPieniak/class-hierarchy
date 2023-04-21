@@ -2,7 +2,7 @@ package org.example;
 
 public class Department {
 
-    String name;
+    private String name;
 
     public Department(String name){
         this.name = name;

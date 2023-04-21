@@ -1,8 +1,8 @@
 package org.example;
 
 public class Support {
-    String skill;
-    String nickName;
+    private String skill;
+    private String nickName;
 
 
     public Support(String skill, String nickName){

@@ -2,7 +2,7 @@ package org.example;
 
 
 public class SocialRoom {
-    boolean availableExpress;
+   private boolean availableExpress;
 
 
     public SocialRoom(boolean availableExpress) {

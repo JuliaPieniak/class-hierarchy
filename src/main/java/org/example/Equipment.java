@@ -1,7 +1,7 @@
 package org.example;
 
 public class Equipment {
-    int toolsCount;
+    private int toolsCount;
 
     public Equipment(int toolsCount) {
         this.toolsCount = toolsCount;

@@ -1,7 +1,7 @@
 package org.example;
 
 public class Nurse extends MedicalStaff{
-    int conductedAssist;
+    private int conductedAssist;
 
     public Nurse(int id, String name,String lastName, int age, int conductedAssist) {
         super(id, name, lastName, age);

@@ -2,7 +2,7 @@ package org.example;
 
 public class Bathroom{
 
-    boolean isClean;
+    private boolean isClean;
 
 
     public Bathroom(boolean isClean) {

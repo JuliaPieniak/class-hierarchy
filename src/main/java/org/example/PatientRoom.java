@@ -2,7 +2,7 @@ package org.example;
 
 public class PatientRoom{
 
-    int capacity;
+   private int capacity;
 
 
     public PatientRoom(int capacity) {
