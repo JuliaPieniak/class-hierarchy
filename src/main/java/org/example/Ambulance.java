@@ -1,16 +1,16 @@
 package org.example;
 
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class Ambulance {
-    private String model;
-    private int productionYear;
+    private final String model;
+    private final int productionYear;
 
-    public Ambulance(String model, int productionYear){
+    public Ambulance(String model, int productionYear) {
         this.model = model;
         this.productionYear = productionYear;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -25,10 +25,9 @@ public class Ambulance {
     }
 
 
-
     @Override
     public String toString() {
-        return "Ambulance: " +
+        return "\t\nAmbulance: " +
                 "model = " + model +
                 ", productionYear = " + productionYear;
     }

@@ -1,8 +1,8 @@
-package org.example;
+package org.example.place;
 
-public class Bathroom{
+public class Bathroom extends Room {
 
-    private boolean isClean;
+    private final boolean isClean;
 
 
     public Bathroom(boolean isClean) {

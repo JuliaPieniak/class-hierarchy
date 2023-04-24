@@ -1,11 +1,11 @@
-package org.example;
+package org.example.place;
 
 import java.util.Objects;
 
-public class Labolatory {
-    private int samplesCount;
+public class Labolatory extends Room {
+    private final int samplesCount;
 
-    public Labolatory(int samplesCount){
+    public Labolatory(int samplesCount) {
         this.samplesCount = samplesCount;
     }
 

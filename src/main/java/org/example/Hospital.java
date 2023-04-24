@@ -1,19 +1,18 @@
 package org.example;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class Hospital {
-    private String name;
-    private List<Department> departments;
+    private final String name;
+    private final List<Department> departments;
 
-    public Hospital(String name, List<Department> departments ){
+    public Hospital(String name, List<Department> departments) {
         this.name = name;
         this.departments = departments;
     }
 
-    public void addDepartment(Department department){
+    public void addDepartment(Department department) {
         departments.add(department);
     }
 
@@ -32,8 +31,9 @@ public class Hospital {
 
     @Override
     public String toString() {
-        return "Hospital " +
-                "name = " + name +
-                ", departments = " + departments;
+        return "Hospital{" +
+                "name='" + name + '\'' +
+                ", departments=" + departments +
+                '}';
     }
 }
