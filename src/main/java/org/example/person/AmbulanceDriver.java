@@ -1,4 +1,4 @@
-package org.example.resident;
+package org.example.person;
 
 import org.example.Interface.IDrivable;
 

@@ -1,6 +1,8 @@
 package org.example;
 
-import org.example.resident.*;
+import org.example.place.Bathroom;
+import org.example.place.SocialRoom;
+import org.example.person.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,10 +45,14 @@ public class Main {
         List<Department> departments1 = new ArrayList<>(List.of(department1, department2));
         List<Department> departments2 = new ArrayList<>(List.of(department3));
 
+        SocialRoom socialRoom = new SocialRoom(true);
+        socialRoom.countAvailableExpress(3, 2);
 
         Hospital hospital1 = new Hospital("Mayo Clinic in Rochester", departments1);
         System.out.println(hospital1);
 
+        Bathroom.display();
+        doctor1.getSalary();
 
         ////////////////////////////////////////////
 //        Labolatory labolatory1 = new Labolatory(1200);
@@ -101,6 +107,10 @@ public class Main {
 //        System.out.println(hospital1.hashCode());
 //        System.out.println(hospital2.hashCode());
 
+    }
+
+    static {
+        System.out.println("Static Block");
     }
 
 //    public static void checkHashCodes(Object o1, Object o2) {

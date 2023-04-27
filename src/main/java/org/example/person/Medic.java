@@ -1,4 +1,4 @@
-package org.example.resident;
+package org.example.person;
 
 public abstract class Medic extends Staff {
 

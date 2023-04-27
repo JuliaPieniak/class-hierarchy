@@ -9,6 +9,10 @@ public class Bathroom extends Room {
         this.isClean = isClean;
     }
 
+    public static void display() {
+        System.out.println("Bathroom displayed");
+    }
+
     @Override
     public String toString() {
         return "Bathroom: " +

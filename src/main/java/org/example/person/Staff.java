@@ -1,4 +1,4 @@
-package org.example.resident;
+package org.example.person;
 
 public abstract class Staff extends Person {
     protected final static int BASE_SALARY = 3000;

@@ -1,7 +1,7 @@
 package org.example;
 
-import org.example.resident.Patient;
-import org.example.resident.Staff;
+import org.example.person.Patient;
+import org.example.person.Staff;
 
 import java.util.List;
 
