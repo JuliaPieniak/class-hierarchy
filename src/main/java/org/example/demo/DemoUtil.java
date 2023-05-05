@@ -29,12 +29,12 @@ public class DemoUtil {
 
     public static int readIndex(int numberOfOptions) throws TooBigIndexException {
         Scanner scanner = new Scanner(System.in);
-        String line = scanner.nextLine();
-        int index = Integer.parseInt(line);
-        if (index >= numberOfOptions) {
-            throw new TooBigIndexException();
-        }
-        return index;
+            String line = scanner.nextLine();
+            int index = Integer.parseInt(line);
+            if (index >= numberOfOptions) {
+                throw new TooBigIndexException();
+            }
+            return index;
     }
 
     public static void showDepartmentsSimple() {
@@ -76,6 +76,8 @@ public class DemoUtil {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return;
+        } finally {
+            System.out.println("OK");
         }
 
         Department department = hospitalState.getDepartments().get(index);
