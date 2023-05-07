@@ -2,7 +2,7 @@ package org.example.demo;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.example.exception.NotEnoughtExpressesException;
+import org.example.exception.NotEnoughExpressesException;
 import org.example.model.Hospital;
 
 import java.util.Scanner;
@@ -89,7 +89,7 @@ public class Demo {
         LOGGER.info(hospitalState.getStaffMembers());
     }
 
-    public static void checkExpressCounter() throws NotEnoughtExpressesException {
+    public static void checkExpressCounter() throws NotEnoughExpressesException {
         DemoUtil.countExpress();
     }
 

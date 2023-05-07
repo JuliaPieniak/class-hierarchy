@@ -1,6 +1,6 @@
 package org.example.exception;
 
-public class UnauthorizedAccessException extends Exception {
+public class UnauthorizedAccessException extends SecurityException {
 
     public UnauthorizedAccessException() {
         super("Unauthorized access try caught");

@@ -2,7 +2,7 @@ package org.example.demo;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.example.exception.NotEnoughtExpressesException;
+import org.example.exception.NotEnoughExpressesException;
 import org.example.exception.TooBigIndexException;
 import org.example.model.Ambulance;
 import org.example.model.Department;
@@ -115,7 +115,7 @@ public class DemoUtil {
         return list.get((int) (Math.random() * list.size()));
     }
 
-    public static void countExpress() throws NotEnoughtExpressesException {
+    public static void countExpress() throws NotEnoughExpressesException {
         SocialRoom socialRoom = new SocialRoom(true);
         socialRoom.countAvailableExpress(3, 2);
     }

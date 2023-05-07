@@ -3,7 +3,7 @@ package org.example.model.room;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.demo.DemoUtil;
-import org.example.exception.NotEnoughtExpressesException;
+import org.example.exception.NotEnoughExpressesException;
 
 public class SocialRoom extends Room {
     private final boolean availableExpress;
@@ -15,13 +15,13 @@ public class SocialRoom extends Room {
         this.availableExpress = availableExpress;
     }
 
-    public final int countAvailableExpress(int x, int y) throws NotEnoughtExpressesException {
+    public final int countAvailableExpress(int x, int y) throws NotEnoughExpressesException {
         counter = x + y;
         if (counter > 5) {
             LOGGER.info("There is " + counter + " available express");
             return counter;
         } else {
-            throw new NotEnoughtExpressesException();
+            throw new NotEnoughExpressesException();
         }
 
     }
