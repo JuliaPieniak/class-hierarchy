@@ -1,9 +1,14 @@
 package org.example.model.person;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.example.demo.DemoUtil;
 import org.example.model.Interface.IAssistable;
 
 public class Nurse extends Medic implements IAssistable {
     private final int conductedAssist;
+    private static final Logger LOGGER = LogManager.getLogger(DemoUtil.class);
+
 
     public Nurse(int id, String name, String lastName, int age, int conductedAssist) {
         super(id, name, lastName, age);
@@ -27,6 +32,6 @@ public class Nurse extends Medic implements IAssistable {
 
     @Override
     public void assist() {
-        System.out.println("Assisting in operation");
+        LOGGER.info("Assisting in operation");
     }
 }

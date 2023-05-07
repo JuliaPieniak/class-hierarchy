@@ -1,5 +1,8 @@
 package org.example.model.room;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.example.demo.DemoUtil;
 import org.example.exception.RestroomIsUsedByOtherPersonException;
 import org.example.exception.RestroomNotAvailableException;
 import org.example.model.person.Person;
@@ -8,13 +11,15 @@ public class Restroom extends Room {
 
     private boolean isAvailable;
     private Person user;
+    private static final Logger LOGGER = LogManager.getLogger(DemoUtil.class);
+
 
     public Restroom(boolean available) {
         this.isAvailable = available;
     }
 
     public static void display() {
-        System.out.println("Bathroom displayed");
+        LOGGER.info("Bathroom displayed");
     }
 
     public void use(Person person) throws RestroomNotAvailableException {

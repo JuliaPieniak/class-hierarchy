@@ -1,5 +1,7 @@
 package org.example.demo;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.example.exception.NotEnoughtExpressesException;
 import org.example.exception.TooBigIndexException;
 import org.example.model.Ambulance;
@@ -10,14 +12,14 @@ import org.example.model.person.*;
 import org.example.model.room.Restroom;
 import org.example.model.room.SocialRoom;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class DemoUtil {
 
     private static Hospital hospitalState;
     private static int personID = -1;
+    private static final Logger LOGGER = LogManager.getLogger(DemoUtil.class);
+
 
     private final static List<String> names = new ArrayList<>(List.of("John", "Joe", "Sam", "Kat", "Carly"));
     private final static List<String> lastNames = new ArrayList<>(List.of("Smith", "Bond", "Kowalski", "Dimmer", "Wazowsky"));
@@ -40,7 +42,7 @@ public class DemoUtil {
     public static void showDepartmentsSimple() {
         List<Department> departments = hospitalState.getDepartments();
         for (int i = 0; i < departments.size(); i++) {
-            System.out.println((i) + ". " + departments.get(i).getType());
+            LOGGER.info((i) + ". " + departments.get(i).getType());
         }
     }
 
@@ -51,7 +53,7 @@ public class DemoUtil {
         try {
             index = readIndex(hospitalState.getDepartments().size());
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            LOGGER.info(e.getMessage());
             return;
         }
 
@@ -59,7 +61,7 @@ public class DemoUtil {
         Department department = hospitalState.getDepartments().get(index);
         department.addPatient(patient);
 
-        System.out.println("Patient '" + patient.getName() + " " + patient.getLastName() + "' added to '" + department.getType() + "'");
+        LOGGER.info("Patient '" + patient.getName() + " " + patient.getLastName() + "' added to '" + department.getType() + "'");
     }
 
     public static void addDoctor() {
@@ -74,16 +76,16 @@ public class DemoUtil {
         try {
             index = readIndex(hospitalState.getDepartments().size());
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            LOGGER.info(e.getMessage());
             return;
         } finally {
-            System.out.println("OK");
+            LOGGER.info("OK");
         }
 
         Department department = hospitalState.getDepartments().get(index);
         department.addStaffMember(staffMember);
 
-        System.out.println(staffMember.getClass().getName() + " '" + staffMember.getName() + " " + staffMember.getLastName() + "' added to '" + department.getType() + "'");
+        LOGGER.info(staffMember.getClass().getName() + " '" + staffMember.getName() + " " + staffMember.getLastName() + "' added to '" + department.getType() + "'");
     }
 
     public static Doctor createRandomDoctor() {
@@ -93,7 +95,7 @@ public class DemoUtil {
         int randomNumberOfConductedOperations = ((int) (Math.random() * 30)) + 1;
 
         Doctor doctor = new Doctor(++personID, randomName, randomLastName, randomAge, randomNumberOfConductedOperations);
-        System.out.println("Created -> " + doctor);
+        LOGGER.info("Created -> " + doctor);
 
         return doctor;
     }
@@ -104,7 +106,7 @@ public class DemoUtil {
         int randomAge = ((int) (Math.random() * 100)) + 1;
 
         Patient patient = new Patient(++personID, randomName, randomLastName, randomAge);
-        System.out.println("Created -> " + patient);
+        LOGGER.info("Created -> " + patient);
 
         return patient;
     }
@@ -155,10 +157,17 @@ public class DemoUtil {
 //        Department department3 = new Department(DepartmentType.ONCOLOGY, ambulances3, staffMembers1, patients3);
 
 
-        List<Department> departments = new ArrayList<>(List.of(department1, department2));
+        LinkedList<Department> departments = new LinkedList<>(List.of(department1, department2));
 
         SocialRoom socialRoom = new SocialRoom(true);
         //socialRoom.countAvailableExpress(3, 2);
+
+        HashMap<String, String> coffeeMachines = new HashMap<>();
+        coffeeMachines.put("Krups", "Espresso Machine");
+        coffeeMachines.put("Nespresso", "VertuoPlus");
+        coffeeMachines.put("DeLonghi", "Dinamica");
+        coffeeMachines.put("Breville", "Bambino Plus");
+        LOGGER.info("Size of coffee machines HashMap: " + coffeeMachines.size());
 
         Hospital hospital1 = new Hospital("Mayo Clinic in Rochester", departments);
 

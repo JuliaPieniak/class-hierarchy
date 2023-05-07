@@ -1,5 +1,8 @@
 package org.example.model.person;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.example.demo.DemoUtil;
 import org.example.exception.RestroomNotAvailableException;
 import org.example.model.room.Restroom;
 
@@ -11,6 +14,8 @@ public abstract class Person {
     protected String name;
     protected String lastName;
     protected int age;
+    private static final Logger LOGGER = LogManager.getLogger(DemoUtil.class);
+
 
     public Person(int id, String name, String lastName, int age) {
         this.id = id;
@@ -31,7 +36,7 @@ public abstract class Person {
         try {
             restroom.use(this);
         } catch (RestroomNotAvailableException e) {
-            System.out.println(e.getMessage());
+            LOGGER.info(e.getMessage());
         }
     }
 

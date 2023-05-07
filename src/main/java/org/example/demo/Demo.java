@@ -1,5 +1,7 @@
 package org.example.demo;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.example.exception.NotEnoughtExpressesException;
 import org.example.model.Hospital;
 
@@ -8,6 +10,8 @@ import java.util.Scanner;
 public class Demo {
 
     private static Hospital hospitalState;
+    private static final Logger LOGGER = LogManager.getLogger(DemoUtil.class);
+
 
 
     public static void start() {
@@ -25,7 +29,7 @@ public class Demo {
             String line = scanner.nextLine();
 
             if (line.equalsIgnoreCase("x")) {
-                System.out.println("The End");
+                LOGGER.info("The End");
                 break;
             }
 
@@ -33,8 +37,8 @@ public class Demo {
             try {
                 index = Integer.parseInt(line);
             } catch (Exception e) {
-                System.out.println("Index is not valid:");
-                System.out.println("-> " + e.getClass());
+                LOGGER.info("Index is not valid:");
+                LOGGER.info("-> " + e.getClass());
                 continue;
             }
 
@@ -45,7 +49,7 @@ public class Demo {
                 case (4) -> addPatient();
                 case (5) -> addDoctor();
            //     case (6) -> checkExpressCounter();
-                default -> System.out.println("Index does not exist");
+                default -> LOGGER.info("Index does not exist");
             }
         }
 
@@ -53,24 +57,24 @@ public class Demo {
     }
 
     public static void showMenuOptions() {
-        System.out.println("__________________________________");
-        System.out.println("X) End demo");
-        System.out.println("1) Show hospital");
-        System.out.println("2) Show departments");
-        System.out.println("3) Show staff");
-        System.out.println("4) Add patient to department");
-        System.out.println("5) Add Doctor to department");
-        System.out.println("__________________________________");
+        LOGGER.info("__________________________________");
+        LOGGER.info("X) End demo");
+        LOGGER.info("1) Show hospital");
+        LOGGER.info("2) Show departments");
+        LOGGER.info("3) Show staff");
+        LOGGER.info("4) Add patient to department");
+        LOGGER.info("5) Add Doctor to department");
+        LOGGER.info("__________________________________");
 
     }
 
 
     public static void showHospital() {
-        System.out.println(hospitalState);
+        LOGGER.info(hospitalState);
     }
 
     public static void showDepartments() {
-        System.out.println(hospitalState.getDepartments());
+        LOGGER.info(hospitalState.getDepartments());
     }
 
    public static void addPatient() {
@@ -82,7 +86,7 @@ public class Demo {
    }
 
     public static void showStaff() {
-        System.out.println(hospitalState.getStaffMembers());
+        LOGGER.info(hospitalState.getStaffMembers());
     }
 
     public static void checkExpressCounter() throws NotEnoughtExpressesException {

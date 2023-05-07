@@ -1,10 +1,15 @@
 package org.example.model.person;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.example.demo.DemoUtil;
 import org.example.model.Interface.IOperable;
 
 public class Doctor extends Medic implements IOperable {
     private final int conductedOperations;
     int docSalary;
+    private static final Logger LOGGER = LogManager.getLogger(DemoUtil.class);
+
 
     public Doctor(int id, String name, String lastName, int age, int conductedOperations) {
         super(id, name, lastName, age);
@@ -15,7 +20,7 @@ public class Doctor extends Medic implements IOperable {
     @Override
     public double getSalary() {
         docSalary = BASE_SALARY * 3;
-        System.out.println("Doctor salary: " + docSalary);
+        LOGGER.info("Doctor salary: " + docSalary);
         return super.getSalary();
     }
 
@@ -26,7 +31,7 @@ public class Doctor extends Medic implements IOperable {
 
     @Override
     public void operate() {
-        System.out.println("Operating a patient");
+        LOGGER.info("Operating a patient");
     }
 
     @Override
